@@ -1,3 +1,7 @@
+// Build a simulation of a shop in c
+// Entities: Shop, Customers, Products, Stock
+// Steps: 1. Model the entities, 2. print product info, 3. print customer info, 4. add item to the customer shopping list, 5. read in stock from a file
+
 #include <stdio.h>
 #include <string.h>
 
