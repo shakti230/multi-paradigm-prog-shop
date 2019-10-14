@@ -26,12 +26,15 @@ struct Customer {
     struct ProductStock shoppintList[10];
 };
 
-void printProduct(Product p)
+void printProduct(struct Product p)
 {
     printf("---------------------\n");
-    printf("PRODUCT NAME: %s \n PRODUCT PRICE: \n %.2f\n", p.name, p.price);
+    printf("PRODUCT NAME: %s \nPRODUCT PRICE: \n %.2f\n", p.name, p.price);
     printf("---------------------\n");
 }
+
+
+void printCustomer(struct )
 
 int main(void)
 {
