@@ -34,14 +34,19 @@ void printProduct(struct Product p)
 }
 
 
-void printCustomer(struct )
+void printCustomer(struct Customer c)
+{
+    printf("---------------------\n");
+    printf("CUSTOMER NAME: %s \nCUSTOMER BUDGET: \n %.2f\n", c.name, c.budget   );
+    printf("---------------------\n");
+}   
 
 int main(void)
 {
-   struct Customer Mary = {"Mary", 100.0};
+   struct Customer Mary = {"Mary", 200.0};
    printf("Customer name is %s\n", Mary.name);
 
-   struct Product coke = { "Can Coke", 1.10 };
+   struct Product coke = { "Can Coke", 1.50 };
    printProduct(coke);
     
    struct ProductStock cokeStock= { coke, 20 };
