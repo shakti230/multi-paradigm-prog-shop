@@ -1,3 +1,4 @@
+// Mary McDonagh
 // Build a simulation of a shop in c
 // Entities: Shop, Customers, Products, Stock
 // Steps: 1. Model the entities, 2. print product info, 3. print customer info, 4. add item to the customer shopping list, 5. read in stock from a file
@@ -5,27 +6,35 @@
 #include <stdio.h>
 #include <string.h>
 
+// Product entity:
 struct Product {
     char* name;
     double price;
 };
 
+// Stock entity:
+// i.e. the products available in the shop
 struct ProductStock {
     struct Product product;
     int quantity;
 };
 
+// Shop entity:
 struct Shop {
     double cash;
     ProductStock stock[20];
 };
 
+// Customer entity:
 struct Customer {
     char* name;
     double budget;
     struct ProductStock shoppintList[10];
 };
 
+// Method to print out the product and customer information
+
+// Product information:
 void printProduct(struct Product p)
 {
     printf("---------------------\n");
