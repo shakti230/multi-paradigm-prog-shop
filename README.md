@@ -25,3 +25,4 @@ Reading files in c: https://stackoverflow.com/questions/3501338/c-read-file-line
 STRtok function: https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm
 Convert a string into an integer using atoi: https://www.tutorialspoint.com/c_standard_library/c_function_atoi.htm
 Convert price using atof: https://www.tutorialspoint.com/c_standard_library/c_function_atof.htm
+How to use strcpy: https://www.tutorialspoint.com/c_standard_library/c_function_strcpy.htm
