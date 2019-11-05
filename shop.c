@@ -27,6 +27,7 @@ struct ProductStock {
 struct Shop {
     double cash;
     ProductStock stock[20];
+    int index;
 };
 
 // Customer entity:
@@ -34,6 +35,7 @@ struct Customer {
     char* name;
     double budget;
     struct ProductStock shoppintList[10];
+    int index;
 };
 
 // Method to print out the product and customer information
@@ -69,9 +71,9 @@ void printCustomer(struct Customer c)
 //}
 
 // Reading each line of data from a file and converting it into a variable (product stock). Then add to struct that represents the shop.
-void createAndStockShop() 
+struct Shop createAndStockShop() 
 {
-  struct Shop shop = {400}; // This struct represents what products are in stock in the shop. 400 is the shop cash.
+  struct Shop shop = {200}; // This struct represents what products are in stock in the shop. 400 is the shop cash.
 
   FILE *fp;
   char *line = NULL;
@@ -90,15 +92,17 @@ void createAndStockShop()
     
     // Method "strtok" is utilised to break down a string into a delimiter (eg ",").
     char *name = strtok(line, ","); // Obtain data (product name) from the line and assign it to variable "name".
-    char *price = strtok(NULL, ",");  // Obtain product price.
-    char *quantity = strtok(NULL, ",");  // Obtain product quantity available.
-    printf("NAME OF PRODUCT %s PRICE %s QUANTITY %s \n", name, price, quantity);
+    char *p = strtok(NULL, ",");  // Obtain product price.
+    char *q = strtok(NULL, ",");  // Obtain product quantity available.
+    // printf("NAME OF PRODUCT %s PRICE %s QUANTITY %s \n", name, price, quantity);
     
     // Next convert price and quantity into appropriate data types
     // To convert string into an integer using atoi.
-    int quantity = atoi(qua);
+    int quantity = atoi(q);
     // To convert into a floating point number using atof
-    double price = atof(pri);
+    double price = atof(p);
+    printf("NAME OF PRODUCT %s PRICE %.2f QUANTITY %s \n", name, price, quantity);
+    
     struct Product product = {name, price};
     struct ProductStock stockItem = {product, quantity};
     shop.stock[shop.index++] = stockItem; // The above data taken from file will be added to shop stock of struct "Shop".
@@ -110,15 +114,16 @@ void createAndStockShop()
 }
 
 // Method to create a print out. It takes "struct Shop" as a parameter.
-void printShop(struct Shop sh)
+void printShop(struct Shop s)
 {
   printf("=====\n");
-  printf("Shop has %.2f in cash\n", sh.cash);
+  printf("Shop has %.2f in cash\n", s.cash);
   printf("=====\n");
-  for (int i = 0; i < sh.index; i++)
+  // create a for loop
+  for (int i = 0; i < shop.index; i++)
   {
-    printProduct(sh.stock[i].product);
-    printf("The shop has %d of the above\n", sh.stock[i].quantity);
+    printProduct(s.stock[i].product); // call to print product
+    printf("The shop has %d of the above\n", s.stock[i].quantity);
     printf("-----\n");
   }
   printf("=====\n");
