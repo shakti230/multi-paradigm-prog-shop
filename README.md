@@ -22,3 +22,4 @@ approach (in Java). The live mode, and the input files, should have exact same b
 
 # References
 Reading files in c: https://stackoverflow.com/questions/3501338/c-read-file-line-by-line
+STRtok function: https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm
