@@ -80,11 +80,11 @@ void createAndStockShop()
 
   // read the file.
   fp = fopen("stock.csv", "r"); // "r" suggests it is to be read only.
-  if (fp == NULL)
+  if (fp == NULL) // if file doesn't exist then exit the program.
   exit(EXIT_FAILURE);
 
   // Below we read each line to assign certain data to correct variables.
-  while ((read = getline(&line, &len, fp)) != -1) // Reads line by line to the end of file. "&line" will remember the line value.
+  while ((read = getline(&line, &len, fp)) != -1) // Reads line one by one to the end of file. "&line" will remember the line value. len looks at the length.
   {
     printf(": %s \n", line); // This is for cheking if the program reads the file
     
