@@ -73,8 +73,7 @@ void printCustomer(struct Customer c)
 // Reading each line of data from a file and converting it into a variable (product stock). Then add to struct that represents the shop.
 struct Shop createAndStockShop() 
 {
-  struct Shop shop = {200}; // This struct represents what products are in stock in the shop. 400 is the shop cash.
-
+ 
   FILE *fp;
   char *line = NULL;
   size_t len = 0;
@@ -85,6 +84,12 @@ struct Shop createAndStockShop()
   if (fp == NULL) // if file doesn't exist then exit the program.
   exit(EXIT_FAILURE);
 
+  getline(&line, &len, fp!;
+  double cashInShop = atof(line); // converting variable read
+  struct Shop shop = { cashInShop 
+                     }; // This struct represents what products are in stock in the shop. 400 is the shop cash.
+
+          
   // Below we read each line to assign certain data to correct variables.
   while ((read = getline(&line, &len, fp)) != -1) // Reads line one by one to the end of file. "&line" will remember the line value. len looks at the length.
   {
@@ -104,9 +109,8 @@ struct Shop createAndStockShop()
     char *name = malloc(sizeof(char) * 50); //memory allocation 
     strcpy(name, n);
       
-      
     //printf("NAME OF PRODUCT %s PRICE %.2f QUANTITY %s \n", name, price, quantity);
-    
+   
     struct Product product = {name, price};
     struct ProductStock stockItem = {product, quantity};
     shop.stock[shop.index++] = stockItem; // The above data taken from file will be added to shop stock of struct "Shop".
@@ -126,14 +130,35 @@ void printShop(struct Shop s)
   // create a for loop
   for (int i = 0; i < shop.index; i++)
   {
+    struct Product product = s.stock[i].product;
+    printProduct(product);
+      
     printProduct(s.stock[i].product); // call to print product
     printf("The shop has %d of the above\n", s.stock[i].quantity);
     printf("-----\n");
   }
   printf("=====\n");
 }
+  
+          
+double FindProductPrice(struct Shop s, char *n)
+  {
+   for (int i = 0; i < shop.index; i++)
+   {
+    struct Product product = s.stock[i].product;
+    char *name = product.name;
+    if (strcmp(name, n) == 0) //if they are equal 0
+    {
+        return product.price;
+    }
+   }
+  return -1; //if not return -1
+  }
 
   struct Shop shop = createAndStockShop(); // This method will read all of the data from the csv stock file.
   printShop(shop);
+  double price = findProductPrice(shop, "Can Coke");        
+  printf("%.2f", price);          
+          
   return 0;
 }
