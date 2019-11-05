@@ -69,7 +69,7 @@ void printCustomer(struct Customer c)
 //}
 
 // Reading each line of data from a file and converting it into a variable (product stock). Then add to struct that represents the shop.
-struct Shop createAndStockShop() 
+void createAndStockShop() 
 {
   struct Shop shop = {400}; // This struct represents what products are in stock in the shop. 400 is the shop cash.
 
