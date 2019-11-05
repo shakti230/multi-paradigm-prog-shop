@@ -17,3 +17,8 @@ The above described functionality should be completed in C. The second part of t
 functionality of the shop in Java. This must be done in an appropriately Object Oriented manner. You must complete a
 short report, 1-3 pages, which compares the solutions acheived using the procedural approach (in C) and the object oriented
 approach (in Java). The live mode, and the input files, should have exact same behaviour in both implementations.
+
+
+
+# References
+Reading files in c: https://stackoverflow.com/questions/3501338/c-read-file-line-by-line
