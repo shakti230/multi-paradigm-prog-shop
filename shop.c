@@ -91,7 +91,7 @@ struct Shop createAndStockShop()
     printf(": %s \n", line); // This is for cheking if the program reads the file
     
     // Method "strtok" is utilised to break down a string into a delimiter (eg ",").
-    char *name = strtok(line, ","); // Obtain data (product name) from the line and assign it to variable "name".
+    char *n = strtok(line, ","); // Obtain data (product name) from the line and assign it to variable "name".
     char *p = strtok(NULL, ",");  // Obtain product price.
     char *q = strtok(NULL, ",");  // Obtain product quantity available.
     // printf("NAME OF PRODUCT %s PRICE %s QUANTITY %s \n", name, price, quantity);
@@ -101,7 +101,11 @@ struct Shop createAndStockShop()
     int quantity = atoi(q);
     // To convert into a floating point number using atof
     double price = atof(p);
-    printf("NAME OF PRODUCT %s PRICE %.2f QUANTITY %s \n", name, price, quantity);
+    char *name = malloc(sizeof(char) * 50); //memory allocation 
+    strcpy(name, n);
+      
+      
+    //printf("NAME OF PRODUCT %s PRICE %.2f QUANTITY %s \n", name, price, quantity);
     
     struct Product product = {name, price};
     struct ProductStock stockItem = {product, quantity};
@@ -129,7 +133,7 @@ void printShop(struct Shop s)
   printf("=====\n");
 }
 
-  struct Shop shop = createAndStockShop(); // This method will read data from a file.
+  struct Shop shop = createAndStockShop(); // This method will read all of the data from the csv stock file.
   printShop(shop);
   return 0;
 }
