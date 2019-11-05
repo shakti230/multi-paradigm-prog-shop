@@ -92,10 +92,12 @@ void createAndStockShop()
     char *name = strtok(line, ","); // Obtain data (product name) from the line and assign it to variable "name".
     char *price = strtok(NULL, ",");  // Obtain product price.
     char *quantity = strtok(NULL, ",");  // Obtain product quantity available.
-    printf("NAME OF PRODUCT %s \n", name);
-      
-    // To convert string into an integer.
+    printf("NAME OF PRODUCT %s PRICE %s QUANTITY %s \n", name, price, quantity);
+    
+    // Next convert price and quantity into appropriate data types
+    // To convert string into an integer using atoi.
     int quantity = atoi(qua);
+    // To convert into a floating point number using atof
     double price = atof(pri);
     struct Product product = {name, price};
     struct ProductStock stockItem = {product, quantity};
