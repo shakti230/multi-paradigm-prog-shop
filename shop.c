@@ -90,9 +90,10 @@ void createAndStockShop()
     
     // Method "strtok" is utilised to break down a string into a delimiter (eg ",").
     char *name = strtok(line, ","); // Obtain data (product name) from the line and assign it to variable "name".
-    char *pri = strtok(NULL, ",");  // Obtain product price.
-    char *qua = strtok(NULL, ",");  // Obtain product quantity available.
-
+    char *price = strtok(NULL, ",");  // Obtain product price.
+    char *quantity = strtok(NULL, ",");  // Obtain product quantity available.
+    printf("NAME OF PRODUCT %s \n", name);
+      
     // To convert string into an integer.
     int quantity = atoi(qua);
     double price = atof(pri);
