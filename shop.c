@@ -127,6 +127,46 @@ struct Shop createAndStockShop()
 
   return shop;
 }
+	  
+}
+
+double find(struct Shop s, char* name)
+{
+	for (int i = 0; i < s.index; i++)
+	{
+		if (strcmp(name, s.stock[i].product.name) == 0){
+			return s.stock[i].product.price;
+		}
+	}
+	return -1;
+}
+
+int main(void) 
+{
+	struct Product productA = { "Coke Can", 0.0 };
+	struct Product productB = { "Milk", 0.0 };
+	struct Product productC = { "Bread", 0.0 };
+	struct ProductStock StockA = { productA, 12 };
+	struct ProductStock StockB = { productB, 5 };
+	struct ProductStock StockC = { productC, 2 };
+	
+	struct ProductStock array[] = { StockA, StockB, StockC }; 
+	
+	struct Shop shop = createAndStockShop();
+	
+	double totalCostForCustomer = 0;
+	for(int i=0; i < 3; i++){
+		struct Product p = array[i].product;
+		double price = find(shop, p.name);
+		printf("The price of %s in the shop is %.2f\n", p.name, price);
+		double totalCostOfItem = array[i].quantity * price;
+		printf("You want %d of %s, that will cost you %.2f\n", array[i].quantity, p.name, totalCostOfItem);
+		totalCostForCustomer += totalCostOfItem;
+	}
+	printf("The total cost for the customer will be %.2f\n", totalCostForCustomer);
+	
+    return 0;
+}
 
 // Method to create a print out. It takes "struct Shop" as a parameter.
 void printShop(struct Shop s)
