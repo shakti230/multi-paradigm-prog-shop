@@ -51,10 +51,16 @@ void printProduct(struct Product p)
 
 void printCustomer(struct Customer c)
 {
-    printf("---------------------\n");
-    printf("CUSTOMER NAME: %s \nCUSTOMER BUDGET: \n %.2f\n", c.name, c.budget   );
-    printf("---------------------\n");
-}   
+	printf("CUSTOMER NAME: %s \nCUSTOMER BUDGET: %.2f\n", c.name, c.budget);
+	printf("-------------\n");
+	for(int i = 0; i < c.index; i++)
+	{
+		printProduct(c.shoppingList[i].product);
+		printf("%s ORDERS %d OF ABOVE PRODUCT\n", c.name, c.shoppingList[i].quantity);
+		double cost = c.shoppingList[i].quantity * c.shoppingList[i].product.price; 
+		printf("The cost to %s will be €%.2f\n", c.name, cost);
+	}
+}  
 
 //int main(void)
 //{
@@ -73,7 +79,8 @@ void printCustomer(struct Customer c)
 // Reading each line of data from a file and converting it into a variable (product stock). Then add to struct that represents the shop.
 struct Shop createAndStockShop() 
 {
- 
+    
+      struct Shop shop = { 200 };
   FILE *fp;
   char *line = NULL;
   size_t len = 0;
