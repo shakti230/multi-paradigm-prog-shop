@@ -28,7 +28,6 @@ struct Customer custOrder()
 	struct Customer customer = { custName, custBudget};
 	
     while ((read = getline(&line, &len, fp)) != -1) {
-		// TODO process remaining lines
 	}        
 	return customer;
 }   
