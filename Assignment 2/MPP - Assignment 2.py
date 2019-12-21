@@ -3,7 +3,7 @@
 
 # ## Mary McDonagh
 # ## Programming for Data Analysis
-# ## Analysis of Boston House Prices
+# ## Assignment 2 - Multi Paradign programming
 
 # Task: For each of the following write a functional, recursive, function in Python to accomplish the task.
 
